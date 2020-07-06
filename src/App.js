@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import TeiSelect from './components/TeiSelect'
 import MoveTeiEvents from './components/MoveTeiEvents'
-// import { DataQuery } from '@dhis2/app-runtime'
 import classes from './App.module.css'
 
 const MyApp = () => {

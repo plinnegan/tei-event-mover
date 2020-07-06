@@ -5,8 +5,14 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2020-07-06T09:45:38.247Z\n"
-"PO-Revision-Date: 2020-07-06T09:45:38.247Z\n"
+"POT-Creation-Date: 2020-07-06T17:03:16.167Z\n"
+"PO-Revision-Date: 2020-07-06T17:03:16.167Z\n"
+
+msgid "Select TEIs"
+msgstr ""
+
+msgid "Move Selected TEIs"
+msgstr ""
 
 msgid "TEI and Event Mover"
 msgstr ""
