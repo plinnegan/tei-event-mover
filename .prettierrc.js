@@ -1,6 +1,6 @@
 const { config } = require('@dhis2/cli-style')
 
 module.exports = {
- ...require(config.prettier),
- tabWidth: 1,
+  ...require(config.prettier),
+  tabWidth: 2,
 }
