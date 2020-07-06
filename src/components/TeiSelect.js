@@ -3,6 +3,7 @@ import propTypes from 'prop-types'
 import { Button } from '@dhis2/ui-core'
 import i18n from '@dhis2/d2-i18n'
 import { useHistory } from 'react-router-dom'
+import Layout from './Layout'
 
 const TeiSelect = ({ selectTeis }) => {
   const history = useHistory()
@@ -14,12 +15,12 @@ const TeiSelect = ({ selectTeis }) => {
   }
 
   return (
-    <>
+    <Layout>
       <h3>Todo</h3>
       <Button primary onClick={handleTeiSelectSubmit}>
         {i18n.t('Select TEIs')}
       </Button>
-    </>
+    </Layout>
   )
 }
 
