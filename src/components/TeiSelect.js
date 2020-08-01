@@ -54,7 +54,8 @@ const TeiSelect = ({ data, teis, setTeis, initialState, setInitialState }) => {
   }, [data])
 
   useEffect(() => {
-    setTeis([])
+    if (program !== initialState.program || orgUnit !== initialState.orgUnit)
+      setTeis([])
   }, [program, orgUnit])
 
   return (
