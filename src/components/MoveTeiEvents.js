@@ -7,9 +7,13 @@ const MoveTeiEvents = ({ selectedTeis }) => {
     <Layout>
       <h3>Todo</h3>
       <ul>
-        {selectedTeis.map(tei => (
-          <li key={tei.trackedEntityInstance}>{tei.trackedEntityInstance}</li>
-        ))}
+        {selectedTeis ? (
+          selectedTeis.map(tei => (
+            <li key={tei.trackedEntityInstance}>{tei.trackedEntityInstance}</li>
+          ))
+        ) : (
+          <h3>No TEIs selected yet</h3>
+        )}
       </ul>
     </Layout>
   )

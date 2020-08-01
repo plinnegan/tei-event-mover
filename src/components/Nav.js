@@ -1,5 +1,5 @@
 import React from 'react'
-import { Tab, TabBar } from '@dhis2/ui-core'
+import { Tab, TabBar } from '@dhis2/ui'
 import i18n from '@dhis2/d2-i18n'
 import { useHistory } from 'react-router-dom'
 import { useLocation } from 'react-router'

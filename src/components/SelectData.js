@@ -1,52 +1,41 @@
-import React from 'react'
+import React, { useState } from 'react'
 import propTypes from 'prop-types'
-import { SingleSelect, SingleSelectOption } from '@dhis2/ui-core'
-import { useDataQuery } from '@dhis2/app-runtime'
+import { SingleSelectField, SingleSelectOption } from '@dhis2/ui'
 
-const SelectData = ({ query }) => {
-  const { loading, error, data } = useDataQuery(query)
-  const endpoint = query.results.resource
-  const hasName = query => query.results.params.fields.includes('name')
-  if (!hasName)
-    throw 'SelectData must be passed a query object where the "name" field is requested'
-  console.log(data)
+const SelectData = ({ label, options, initialValue, setValue }) => {
+  const [selected, setSelected] = useState(initialValue)
+
+  const handleChange = e => {
+    console.log('Changing')
+    setSelected(e.selected)
+    console.log(e)
+    setValue(e.selected)
+  }
+
   return (
-    <SingleSelect
-      loading={loading}
-      loadingText={`Loading ${endpoint}`}
-      empty={
-        data && data.results[endpoint].length ? false : `No ${endpoint} found`
-      }
+    <SingleSelectField
+      label={label}
+      inputWidth="400px"
+      onChange={e => handleChange(e)}
+      selected={selected}
     >
-      {error ? (
-        <SingleSelectOption
-          key={`${endpoint}-select-error`}
-          value="error"
-          label={`Error while loading ${endpoint}`}
-        ></SingleSelectOption>
-      ) : (
-        data &&
-        data.results[endpoint].map(result => (
+      {options &&
+        options.map(opt => (
           <SingleSelectOption
-            key={result.id}
-            value={result.id}
-            label={result.name}
+            key={opt.key}
+            value={opt.value}
+            label={opt.label}
           ></SingleSelectOption>
-        ))
-      )}
-    </SingleSelect>
+        ))}
+    </SingleSelectField>
   )
 }
 
 SelectData.propTypes = {
-  query: propTypes.shape({
-    results: propTypes.shape({
-      params: propTypes.shape({
-        fields: propTypes.arrayOf(propTypes.string),
-      }).isRequired,
-      resource: propTypes.string.isRequired,
-    }).isRequired,
-  }).isRequired,
+  label: propTypes.string.isRequired,
+  options: propTypes.array.isRequired,
+  setValue: propTypes.func.isRequired,
+  initialValue: propTypes.string,
 }
 
 export default SelectData
