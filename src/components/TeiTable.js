@@ -16,7 +16,7 @@ const teiDataQuery = {
   },
 }
 
-const makeTableColumns = displayAttrs => {
+export const makeTableColumns = displayAttrs => {
   const result = [
     {
       title: 'trackedEntityInstance',
@@ -69,9 +69,9 @@ const TeiTable = ({ program, orgUnit, teis, setTeis, displayAttrs }) => {
   }, [data])
 
   const rowSelection = {
-    selectedRowKeys: teis,
-    onChange: selectedRowKeys => {
-      setTeis(selectedRowKeys)
+    selectedRowKeys: teis.map(tei => tei.trackedEntityInstance),
+    onChange: (_, selectedRows) => {
+      setTeis(selectedRows)
     },
   }
 

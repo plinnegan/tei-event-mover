@@ -3,7 +3,8 @@ import propTypes from 'prop-types'
 import { Button } from '@dhis2/ui'
 import OuModal from './OuModal'
 
-const OuSelectButton = ({
+const OuSelect = ({
+  label,
   orgUnitPath,
   orgUnitName,
   setOrgUnitName,
@@ -35,15 +36,16 @@ const OuSelectButton = ({
           userOus={userOus}
         />
       )}
-      <span style={{ paddingTop: '30px' }}>
-        Organisation unit:&nbsp;&nbsp;&nbsp;
+      <span>
+        {`${label}   `}
         <Button onClick={() => setShowModel(true)}>{ouName}</Button>
       </span>
     </>
   )
 }
 
-OuSelectButton.propTypes = {
+OuSelect.propTypes = {
+  label: propTypes.string,
   orgUnitName: propTypes.string,
   orgUnitPath: propTypes.string,
   setOrgUnitName: propTypes.func,
@@ -51,4 +53,8 @@ OuSelectButton.propTypes = {
   userOus: propTypes.array,
 }
 
-export default OuSelectButton
+OuSelect.defaultProps = {
+  label: 'Organisation Unit:',
+}
+
+export default OuSelect

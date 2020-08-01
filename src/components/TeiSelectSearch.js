@@ -28,13 +28,15 @@ const TeiSelectSearch = ({
           setProgram={setProgram}
         />
         <div style={{ margin: '10px' }}></div>
-        <OuSelect
-          orgUnitName={orgUnitName}
-          setOrgUnitName={setOrgUnitName}
-          orgUnitPath={selectedOu}
-          setOrgUnitPath={setOrgUnitPath}
-          userOus={userOuUids}
-        />
+        <div style={{ paddingTop: '30px' }}>
+          <OuSelect
+            orgUnitName={orgUnitName}
+            setOrgUnitName={setOrgUnitName}
+            orgUnitPath={selectedOu}
+            setOrgUnitPath={setOrgUnitPath}
+            userOus={userOuUids}
+          />
+        </div>
       </span>
     </Layout>
   )

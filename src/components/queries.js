@@ -11,6 +11,7 @@ export const userOuWithProgramsQuery = {
       fields: [
         'id',
         'name',
+        'orgUnit',
         'programTrackedEntityAttributes[displayInList,trackedEntityAttribute[id,name]]',
       ],
       filter: 'programType:eq:WITH_REGISTRATION',

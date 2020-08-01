@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import Layout from './components/Layout'
 import TeiSelect from './components/TeiSelect'
 import MoveTeiEvents from './components/MoveTeiEvents'
 import classes from './App.module.css'
@@ -31,7 +32,21 @@ const MyApp = () => {
             )}
           </Route>
           <Route exact path="/move">
-            <MoveTeiEvents teis={teis} setTeis={setTeis} />
+            <Layout>
+              {teis.length ? (
+                <MoveTeiEvents
+                  teis={teis}
+                  teiSelectState={teiSelectState}
+                  userOus={data.userOus.organisationUnits}
+                />
+              ) : (
+                <>
+                  <br />
+                  <br />
+                  <h2>Please select TEIs in the Select TEIs tab</h2>
+                </>
+              )}
+            </Layout>
           </Route>
         </Switch>
       </Router>
