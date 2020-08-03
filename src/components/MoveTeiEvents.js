@@ -44,8 +44,12 @@ const ouUpdateMutation = {
 
 const ownerUpdateMutation = {
   type: 'update',
-  resource:
-    'tracker/ownership/transfer?trackedEntityInstance=XnFPsDOVJND&program=IpHINAT79UW&ou=DiszpKrYNg8',
+  resource: 'tracker/ownership/transfer',
+  params: ({ teiUid, program, newOu }) => ({
+    trackedEntityInstance: teiUid,
+    program: program,
+    ou: newOu,
+  }),
   data: {},
 }
 
@@ -65,10 +69,12 @@ const MoveTeiEvents = ({ teis, teiSelectState, userOus }) => {
   ] = useDataMutation(ouUpdateMutation, {
     variables: { updatedData: { trackedEntityInstances: [] } },
   })
-  const [
-    ownerMutate,
-    { error: ownerUpdateError },
-  ] = useDataMutation(ownerUpdateMutation, { variables: { teiUid: '' } })
+  const [ownerMutate, { error: ownerUpdateError }] = useDataMutation(
+    ownerUpdateMutation,
+    {
+      variables: { teiUid: '', program: '', newOu: '' },
+    }
+  )
 
   const { prgAttrMap, program } = teiSelectState
   const displayAttrs = prgAttrMap[program]
@@ -93,7 +99,11 @@ const MoveTeiEvents = ({ teis, teiSelectState, userOus }) => {
     console.log('TEI DATA', updatedData)
     await ouMutate({ updatedData })
     for (const tei of data.results.trackedEntityInstances) {
-      await ownerMutate({ teiUid: tei.trackedEntityInstance })
+      await ownerMutate({
+        teiUid: tei.trackedEntityInstance,
+        program: program,
+        newOu: orgUnit,
+      })
     }
   }
 
