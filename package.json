@@ -12,12 +12,11 @@
     "format": "d2-style js apply && d2-style text apply"
   },
   "devDependencies": {
-    "@dhis2/cli-app-scripts": "^4.0.9",
-    "@dhis2/cli-style": "^7.0.0"
+    "@dhis2/cli-app-scripts": "^12.8.0",
+    "@dhis2/cli-style": "^10.7.9"
   },
   "dependencies": {
-    "@dhis2/app-runtime": "^2.2.2",
-    "@dhis2/ui": "^5.1.2",
+    "@dhis2/app-runtime": "^3.14.6",
     "antd": "^4.4.2",
     "react-router-dom": "^5.2.0"
   }
