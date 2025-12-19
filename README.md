@@ -1,3 +1,5 @@
+# This project is currently archived, please reach out to plinnegan@baosystems.com if you would like to discuss using this project.
+
 This project was bootstrapped with [DHIS2 Application Platform](https://github.com/dhis2/app-platform).
 
 ## Available Scripts
